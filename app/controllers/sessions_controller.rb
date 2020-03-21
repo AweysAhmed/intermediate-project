@@ -1,5 +1,7 @@
 # frozen_string_literal: true
 
+# override clearance session controller to enable login using username or login
+
 class SessionsController < Clearance::SessionsController
   private
 

@@ -1,9 +1,11 @@
 Rails.application.routes.draw do
+  get 'shouts/create'
   constraints Clearance::Constraints::SignedIn.new do
     root to: 'dashboards#show', as: :signed_in_root
   end
 
   root to: 'homes#show'
+  resources :shouts, only: [:create]
   resources :passwords, controller: 'clearance/passwords', only: [:create, :new]
   resource :session, only: [:create]
 

@@ -18,7 +18,7 @@ ActiveRecord::Schema.define(version: 2020_04_08_185513) do
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["shout_id"], name: "index_likes_on_shout_id"
-    t.index ["user_id", "shout_id"], name: "index_likes_on_user_id_and_shout_id", unique: true
+    t.index %w[user_id shout_id], name: "index_likes_on_user_id_and_shout_id", unique: true
     t.index ["user_id"], name: "index_likes_on_user_id"
   end
 
@@ -37,7 +37,7 @@ ActiveRecord::Schema.define(version: 2020_04_08_185513) do
     t.datetime "updated_at", precision: 6, null: false
     t.string "content_type", null: false
     t.integer "content_id", null: false
-    t.index ["content_type", "content_id"], name: "index_shouts_on_content_type_and_content_id"
+    t.index %w[content_type content_id], name: "index_shouts_on_content_type_and_content_id"
     t.index ["user_id"], name: "index_shouts_on_user_id"
   end
 
